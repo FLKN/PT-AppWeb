@@ -19,7 +19,6 @@ class CreateEmpleados extends Migration
           $table->string('ap_mat',100)->nullable();
           $table->date('fecha_nac');
           $table->integer('sexo');
-          $table->binary('foto');
           $table->string('direccion',300);
           $table->string('telefono',15);
           $table->time('hora_init');
@@ -28,6 +27,7 @@ class CreateEmpleados extends Migration
           $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
           $table->timestamps();
         });
+        DB::statement("ALTER TABLE empleados ADD COLUMN foto MEDIUMBLOB AFTER sexo");
     }
 
     /**

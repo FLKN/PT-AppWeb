@@ -21,6 +21,10 @@ class DashboardControl extends Controller
     return view ('pt_dash.login');
 
   }
+  public function logout() {
+    Auth::logout();
+    return redirect('/dash');
+  }
 
   public function home () {
     $user=Auth::user();

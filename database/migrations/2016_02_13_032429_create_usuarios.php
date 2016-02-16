@@ -17,6 +17,7 @@ class CreateUsuarios extends Migration
           $table->string('user_name');
           $table->string('password');
           $table->integer('nivel');
+          $table->string('remember_token');
           $table->timestamps();
         });
     }
