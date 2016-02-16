@@ -19,17 +19,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $empleado->foto )?>" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ $empleado->nombre }} {{ $empleado->ap_pat }} {{ $empleado->ap_mat }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $empleado->foto )?> " class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ $empleado->nombre }} {{ $empleado->ap_pat }} {{ $empleado->ap_mat }}
+                  <small>Tel. {{ $empleado->telefono }}</small>
                 </p>
               </li>
               <!-- Menu Footer-->

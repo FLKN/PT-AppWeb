@@ -12,6 +12,7 @@ use Hash;
 
 //models
 use App\usuario;
+use App\empleado;
 
 
 class DashboardControl extends Controller
@@ -23,8 +24,9 @@ class DashboardControl extends Controller
 
   public function home () {
     $user=Auth::user();
+    $empleado=empleado::where('id_usuario','=',$user->id)->first();
 		return view ('pt_dash.home_dash')
-            ->withUser($user);
+      ->withEmpleado($empleado);
 	}
 
   public function authenticate()
@@ -45,5 +47,14 @@ class DashboardControl extends Controller
       return view('pt_dash.login');
   }
 
+  public function verEmpleados()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+    $empleados = empleado::all();
+    return view ('pt_dash.ver_empleados')
+      ->withEmpleado($empleado)
+      ->withEmpleados($empleados);
 
+  }
 }

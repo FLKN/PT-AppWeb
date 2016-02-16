@@ -5,10 +5,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $empleado->foto )?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ $empleado->nombre }} {{ $empleado->ap_pat }} {{ $empleado->ap_mat }}</p>
         </div>
       </div>
       
@@ -31,8 +31,8 @@
             <i class="fa fa-users"></i> <span>Control de empleados</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="  "><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
-            <li><a href="  "><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
+            <li><a href="/empleados"><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
+            <li><a href="/empleados/añadir"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
           </ul>
         </li>
 
