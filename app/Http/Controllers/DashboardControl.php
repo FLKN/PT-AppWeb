@@ -38,8 +38,7 @@ class DashboardControl extends Controller
     $input = Request::all();
     $credentials = array(
       'user_name' => $input['usuario'],
-      'password' => $input['password'],
-      'nivel' => 1
+      'password' => $input['password']
     );
     if (Auth::attempt($credentials)) {
 

@@ -12,66 +12,45 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Lista de empleados</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Telefono</th>
+                  <th>Direccion</th>
+                  <th>Hora de inicio</th>
+                  <th>Hora de fin</th>
+                  <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>AOL browser (AOL desktop)</td>
-                  <td>Win XP</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
+                @foreach($empleados as $empleado)
+                  <tr>
+                    <td>{{ $empleado->nombre }} {{ $empleado->ap_pat }} {{ $empleado->ap_mat }}</td>
+                    <td>Edad</td>
+                    <td>{{ $empleado->telefono }}</td>
+                    <td>{{ $empleado->direccion }}</td>
+                    <td>{{ $empleado->hora_init }}</td>
+                    <td>{{ $empleado->hora_fin }}</td>
+                    <td></td>
+                  </tr>
+                @endforeach
                 </tbody>
                 <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                    <th>Hora de inicio</th>
+                    <th>Hora de fin</th>
+                    <th>Acción</th>
+                  </tr>
                 </tfoot>
               </table>
             </div>
@@ -79,6 +58,7 @@
           </div>
           <!-- /.box -->
         </div>
+
       </div>
       <!-- /.row (main row) -->
 @endsection
@@ -86,18 +66,17 @@
 @section('script')
 <script>
   $(function () {
-    $("#example1").DataTable();
     $('#example1').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
       "ordering": true,
       "info": true,
-      "autoWidth": false
+      "autoWidth": true
     });
   });
 </script>
 
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 @endsection

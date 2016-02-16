@@ -6,5 +6,5 @@ Route::get('/dash/login', 'DashboardControl@login');
 Route::get('/dash/logout', ['middleware' => 'auth', 'uses' =>'DashboardControl@logout']);
 Route::post('/login', 'DashboardControl@authenticate');
 
-Route::get('/empleados', 'DashboardControl@verEmpleados');
-Route::get('/empleados/añadir', 'DashboardControl@añadirEmpleados');
+Route::get('/dash/empleados', 'DashboardControl@verEmpleados');
+Route::get('/dash/empleados/añadir', 'DashboardControl@añadirEmpleados');

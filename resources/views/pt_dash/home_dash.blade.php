@@ -6,72 +6,93 @@
 
       <!-- Main row -->
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-xs-12">
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Bienvenido</h3>
+            </div>
+            <div class="box-body">
+            </div>
+            AQUI VA UNA IMAGEN GRANDE CON EL LOGO DE UPIITA
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h4>Habitaciones <br> disponibles</h4>
             </div>
             <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-bed"></i>
             </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+            <a href="/dash/habitaciones" class="small-box-footer">
+              Ir <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-
+              <h4>Lista de <br> empleados</h4>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-stalker"></i>
+            </div>
+            <a href="/dash/empleados" class="small-box-footer">
+              Ir <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h4>Ver <br> estadisticas<h4>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+            <a href="/dash/estadisticas" class="small-box-footer">
+              Ir <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-6 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
+              <h4>Ver <br> eventos</h4>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-calendar"></i>
             </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+            <a href="/dash/eventos" class="small-box-footer">
+              Ir <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
         <!-- ./col -->
+        <div class="col-lg-6 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-purple">
+            <div class="inner">
+              <h4>Ver <br> platillos</h4>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cutlery"></i>
+            </div>
+            <a href="/dash/platillos" class="small-box-footer">
+              Ir <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
       <!-- /.row (main row) -->
 @endsection

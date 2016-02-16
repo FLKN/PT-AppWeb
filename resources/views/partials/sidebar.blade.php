@@ -31,8 +31,8 @@
             <i class="fa fa-users"></i> <span>Control de empleados</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/empleados"><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
-            <li><a href="/empleados/añadir"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
+            <li><a href="/dash/empleados"><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
+            <li><a href="/dash/empleados/añadir"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
           </ul>
         </li>
 
