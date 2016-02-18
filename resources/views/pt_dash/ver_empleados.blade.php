@@ -37,7 +37,9 @@
                     <td>{{ $empleado->direccion }}</td>
                     <td>{{ $empleado->hora_init }}</td>
                     <td>{{ $empleado->hora_fin }}</td>
-                    <td></td>
+                    <td>
+                      <a href="/dash/empleados/editar/{{ $empleado->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-reply"></i></a>
+                    </td>
                   </tr>
                 @endforeach
                 </tbody>

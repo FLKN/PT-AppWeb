@@ -8,3 +8,4 @@ Route::post('/login', 'DashboardControl@authenticate');
 
 Route::get('/dash/empleados', 'DashboardControl@verEmpleados');
 Route::get('/dash/empleados/añadir', 'DashboardControl@añadirEmpleados');
+Route::get('/dash/empleados/editar/{id?}', 'DashboardControl@editarEmpleados');

@@ -60,4 +60,16 @@ class DashboardControl extends Controller
       ->withEmpleados($empleados);
 
   }
+
+  public function editarEmpleados($id)
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    $empleado_editable = empleado::where('id',$id)->first();
+    
+    return view ('pt_dash.editar_empleados')
+      ->withEmpleado($empleado)
+      ->withEditable($empleado_editable);
+  }
 }
