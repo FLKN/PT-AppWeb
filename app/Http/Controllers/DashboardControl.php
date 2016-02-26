@@ -72,4 +72,11 @@ class DashboardControl extends Controller
       ->withEmpleado($empleado)
       ->withEditable($empleado_editable);
   }
+
+  public function editateEmpleado()
+  {
+    $input = Request::all();
+
+    return $input["foto"];
+  }
 }
