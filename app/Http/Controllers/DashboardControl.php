@@ -78,7 +78,7 @@ class DashboardControl extends Controller
     $input = Request::all();
 
     $id = $input["empleado_id"];
-    
+
     $empleado = empleado::find($id);
 
     $empleado->nombre = $input["nombre"];
@@ -87,13 +87,13 @@ class DashboardControl extends Controller
     $empleado->fecha_nac = $input["fecha_nac"];
     $empleado->sexo = $input["sexo"];
 
-    if (\Input::hasFile('foto') )
+    if ( \Input::hasFile('foto') )
       $empleado->foto = file_get_contents( \Input::file("foto") );
 
     $empleado->direccion = $input["direccion"];
-    $empleado->telefono = $input["telefono"];
-    $empleado->hora_init = $input["hora_init"];
-    $empleado->hora_fin = $input["hora_fin"];
+    $empleado->telefono = str_replace("-","",$input["telefono"]);
+    $empleado->hora_init = date("H:i",strtotime($input["hora_init"]));
+    $empleado->hora_fin = date("H:i",strtotime($input["hora_fin"]));
 
     $empleado->save();
 
