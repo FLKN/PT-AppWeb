@@ -10,3 +10,4 @@ Route::get('/dash/empleados', 'DashboardControl@verEmpleados');
 Route::get('/dash/empleados/agregar', 'DashboardControl@agregarEmpleados');
 Route::get('/dash/empleados/editar/{id?}', 'DashboardControl@editarEmpleados');
 Route::post('/dash/empleados/editate', 'DashboardControl@editateEmpleado');
+Route::post('/dash/empleados/agregate', 'DashboardControl@agregateEmpleado');

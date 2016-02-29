@@ -15,7 +15,7 @@
 
       <div class="row">
       
-        <form action="/dash/empleados/agregar" validate method="POST" enctype="multipart/form-data">
+        <form action="/dash/empleados/agregate" autocomplete="off" validate method="POST" enctype="multipart/form-data">
 
             <!-- left column -->      
             <div class="col-md-6">
@@ -27,14 +27,14 @@
                 <div class="box-body">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
                   </div>
 
                   <br>
 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="ap_pat" class="form-control" placeholder="Apellido Paterno">
+                    <input type="text" name="ap_pat" class="form-control" placeholder="Apellido Paterno" required>
                   </div>
 
                   <br>
@@ -42,6 +42,13 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <input type="text" name="ap_mat" class="form-control" placeholder="Apellido Materno">
+                  </div>
+
+                  <br>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
                   </div>
                 </div>
               </div>
@@ -58,7 +65,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                       </div>
-                      <input type="text" name="telefono" class="form-control" data-inputmask="'mask': ['99-9999-9999', '99 9999-9999']" data-mask>
+                      <input type="text" name="telefono" class="form-control" data-inputmask="'mask': ['99-9999-9999', '99 9999-9999']" data-mask required>
                     </div>
                   </div>
 
@@ -69,7 +76,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-clock-o"></i>
                         </div>
-                        <input type="text" name="hora_init" class="form-control timepicker1">
+                        <input type="text" name="hora_init" class="form-control timepicker1" required>
                       </div>
                     </div>
                   </div>
@@ -81,7 +88,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-clock-o"></i>
                         </div>
-                        <input type="text" name="hora_fin" class="form-control timepicker2">
+                        <input type="text" name="hora_fin" class="form-control timepicker2" required>
                       </div>
                     </div>
                   </div>
@@ -106,7 +113,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                       </div>
-                      <input type="date" name="fecha_nac" class="form-control" >
+                      <input type="date" name="fecha_nac" class="form-control" required>
                     </div>
                   </div>
 
@@ -139,7 +146,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-home"></i>
                       </div>
-                      <input type="text" name="direccion" class="form-control">
+                      <input type="text" name="direccion" class="form-control" required>
                     </div>
                   </div>
                 </div>
