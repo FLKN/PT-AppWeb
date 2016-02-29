@@ -39,6 +39,7 @@
                     <td>{{ $empleado->hora_fin }}</td>
                     <td>
                       <a href="/dash/empleados/editar/{{ $empleado->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-reply"></i></a>
+                      <a href="/dash/empleados/agregar" title="Agregar" alt="Agregar" class="btn btn-sm btn-success" style="margin: 5%;"><i class="fa fa-plus"></i></a>
                     </td>
                   </tr>
                 @endforeach

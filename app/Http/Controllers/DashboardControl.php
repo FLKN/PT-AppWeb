@@ -99,4 +99,14 @@ class DashboardControl extends Controller
 
     return  redirect()->back();
   }
+
+  public function agregarEmpleados()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    
+    return view ('pt_dash.agregar_empleados')
+      ->withEmpleado($empleado);
+  }
 }
