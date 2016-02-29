@@ -10,11 +10,14 @@
 
 
       <!-- Main row -->
+      
+      <a href="/dash/empleados" title="Editar" alt="Editar" class="btn btn-sm btn-primary pull-right" style="margin-bottom: 10px; margin-right: 10px; text-align: right;"><i class="fa fa-reply"></i> Regresar</a>
+
       <div class="row">
-        
-        <form action="/dash/empleados/editate" autocomplete="off" method="POST" enctype="multipart/form-data">
-            <!-- left column -->
-        
+      
+        <form action="/dash/empleados/editate" novalidate method="POST" enctype="multipart/form-data">
+
+            <!-- left column -->      
             <div class="col-md-6">
               <div class="box box-primary">
                 <div class="box-header with-border">
@@ -134,9 +137,10 @@
                   
                   <div class="form-group" >
                     <label for="exampleInputFile">Foto</label><br>
-                    <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $editable->foto )?>" alt="Foto" style="height: 100px; width: 100px; border-radius: 50%; margin: 0 auto;"> 
+                    <img id="preview" src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $editable->foto )?>" alt="Foto" style="height: 100px; width: 100px; border-radius: 50%; margin: 0 auto;"> 
                     <br><br>
-                    <input type="file" name="foto" id="exampleInputFile">
+                    <input type="file" accept="image/*" name="foto" id="foto" onchange="javascript:cambia_img();">
+                    
                     <p class="help-block">Example block-level help text here.</p>
                   </div>
 
@@ -200,6 +204,19 @@
       showInputs: false
     });
   });
+
+  function cambia_img(){
+    var Archivos, Lector;
+    Archivos = $('#foto')[0].files;
+    if(Archivos.length>0){
+        Lector = new FileReader();
+        Lector.onloadend = function(e){
+            var origen = e.target; //objeto FileReader
+            $('#preview').attr('src', origen.result);
+        }
+        Lector.readAsDataURL(Archivos[0]);
+    }
+  }
 </script>
 
 @endsection

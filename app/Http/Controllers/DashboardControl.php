@@ -73,10 +73,30 @@ class DashboardControl extends Controller
       ->withEditable($empleado_editable);
   }
 
-  public function editateEmpleado()
+  public function editateEmpleado($value='')
   {
     $input = Request::all();
 
-    return $input["foto"];
+    $id = $input["empleado_id"];
+    
+    $empleado = empleado::find($id);
+
+    $empleado->nombre = $input["nombre"];
+    $empleado->ap_pat = $input["ap_pat"];
+    $empleado->ap_mat = $input["ap_mat"];
+    $empleado->fecha_nac = $input["fecha_nac"];
+    $empleado->sexo = $input["sexo"];
+
+    if (\Input::hasFile('foto') )
+      $empleado->foto = file_get_contents( \Input::file("foto") );
+
+    $empleado->direccion = $input["direccion"];
+    $empleado->telefono = $input["telefono"];
+    $empleado->hora_init = $input["hora_init"];
+    $empleado->hora_fin = $input["hora_fin"];
+
+    $empleado->save();
+
+    return  redirect()->back();
   }
 }
