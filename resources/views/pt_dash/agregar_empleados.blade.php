@@ -133,7 +133,7 @@
                   
                   <div class="form-group" >
                     <label for="exampleInputFile">Foto</label><br>
-                    <img id="preview" src="/images/user-icon.jpg" alt="Foto" style="height: 100px; width: 100px; border-radius: 50%; margin: 0 auto;"> 
+                    <img id="preview" src="/images/usericon.jpg" alt="Foto" style="height: 100px; width: 100px; border-radius: 50%; margin: 0 auto;"> 
                     <br><br>
                     <input type="file" accept="image/*" name="foto" id="foto" onchange="javascript:cambia_img();">
                     

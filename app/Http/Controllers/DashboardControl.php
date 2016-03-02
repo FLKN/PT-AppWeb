@@ -121,11 +121,6 @@ class DashboardControl extends Controller
       return "error";
     else {
       
-      $img_predet = imagecreatefromjpeg('/images/user-icon.jpg');
-      header("Content-type: image/jpeg");
-      imagejpeg($img_predet);
-
-      dd(var_dump($img_predet));
       $usuario_nuevo = new usuario;
       
       $usuario_nuevo->user_name = $usuario;
@@ -150,8 +145,9 @@ class DashboardControl extends Controller
       $empleado_nuevo->sexo = $input["sexo"];
       if ( \Input::hasFile('foto') )
         $empleado_nuevo->foto = file_get_contents( \Input::file("foto") );
-      else
-        $empleado_nuevo->foto = $img_predet;
+      else{
+        $empleado_nuevo->foto = file_get_contents(public_path()."/images/usericon.jpg");;
+      }
       $empleado_nuevo->direccion = $input["direccion"];
       $empleado_nuevo->telefono = str_replace("-","",$input["telefono"]);
       $empleado_nuevo->hora_init = date("H:i",strtotime($input["hora_init"]));
@@ -160,15 +156,8 @@ class DashboardControl extends Controller
 
       $empleado_nuevo->save();
 
-      imagedestroy($img_predet);
 
-      $user=Auth::user();
-      $empleado = empleado::where('id_usuario','=',$user->id)->first();
-      $empleados = empleado::all();
-      
-      return redirect('pt_dash.ver_empleados')
-        ->withEmpleado($empleado)
-        ->withEmpleados($empleados);
+      return redirect()->back();
     }
   }
 }

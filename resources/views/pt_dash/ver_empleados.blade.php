@@ -13,6 +13,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Lista de empleados</h3>
+              <a href="/dash/empleados/agregar" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Empleado</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -39,7 +40,6 @@
                     <td>{{ $empleado->hora_fin }}</td>
                     <td>
                       <a href="/dash/empleados/editar/{{ $empleado->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-reply"></i></a>
-                      <a href="/dash/empleados/agregar" title="Agregar" alt="Agregar" class="btn btn-sm btn-success" style="margin: 5%;"><i class="fa fa-plus"></i></a>
                     </td>
                   </tr>
                 @endforeach
