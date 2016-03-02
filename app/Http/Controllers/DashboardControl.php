@@ -58,7 +58,6 @@ class DashboardControl extends Controller
     return view ('pt_dash.ver_empleados')
       ->withEmpleado($empleado)
       ->withEmpleados($empleados);
-
   }
 
   public function editarEmpleados($id)
@@ -73,7 +72,7 @@ class DashboardControl extends Controller
       ->withEditable($empleado_editable);
   }
 
-  public function editateEmpleado($value='')
+  public function editateEmpleado()
   {
     $input = Request::all();
 
@@ -159,5 +158,12 @@ class DashboardControl extends Controller
 
       return redirect()->back();
     }
+  }
+
+  public function eliminateEmpleado($id)
+  {
+    usuario::where('id',$id)->delete();
+
+    return $id;
   }
 }

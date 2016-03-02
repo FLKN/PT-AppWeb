@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $empleado->foto )?>" class="img-circle" alt="User Image">
+          <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $empleado->foto )?>" class="img-circle" alt="User Image" style="width: 50px; height: 50px;">
         </div>
         <div class="pull-left info">
           <p>{{ $empleado->nombre }} {{ $empleado->ap_pat }} {{ $empleado->ap_mat }}</p>
