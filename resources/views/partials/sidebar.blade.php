@@ -32,7 +32,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/dash/empleados"><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
-            <li><a href="/dash/empleados/añadir"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
+            <li><a href="/dash/empleados/agregar"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
           </ul>
         </li>
 

@@ -1,5 +1,5 @@
 <?php
-
+Route::get('/', function(){ return view('pt_page.home'); });
 
 Route::get('/dash', ['middleware' => 'auth', 'uses' =>'DashboardControl@home']);
 Route::get('/dash/login', 'DashboardControl@login');
