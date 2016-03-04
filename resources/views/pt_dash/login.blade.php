@@ -1,32 +1,59 @@
-
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UPIITA Domotics | Iniciar Sesión</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
 
-  <body>
-
-    <form role="form" action="/login" method="post" novalidate>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Usuario</label>
-
-        <div>
-          <div class="controls">
-            <input name="usuario" placeholder="Ingresa tu usuario" type="text" class="form-control" maxlength="100" required data-validation-Required-Message="Debes escribir tu Número" data-validation-maxlength-message="El Número solo tiene 5 caracteres.">
-            <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-box-body">
+        <p class="login-box-msg">UPIITA Domotics</p>
+        <form action="/login" method="post" validate>
+          <div class="form-group has-feedback">
+            <input type="text" name="usuario" class="form-control" placeholder="Usuario" required>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
-        </div>
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Contraseña</label>
-        <div class="control-group">
-          <div class="controls">
-          <input type="password" name="password" placeholder="Ingresa tu contraseña" class="form-control" required data-validation-Required-Message="Debes escribir tu Contraseña">
+          <div class="form-group has-feedback">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" />
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
 
-      </div>
 
-      <button id="success1" type="submit" class="btn btn-primary btn-block"><i class='fa fa-fw fa-check-square-o'></i> Entrar</button>
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
 
-		</form>
+    <!-- jQuery 2.1.4 -->
+    <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  
   </body>
 </html>
+
