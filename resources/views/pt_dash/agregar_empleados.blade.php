@@ -137,7 +137,7 @@
                     <br><br>
                     <input type="file" accept="image/*" name="foto" id="foto" onchange="javascript:cambia_img();">
                     
-                    <p class="help-block">Example block-level help text here.</p>
+                    <p class="help-block">Tamaño máximo de archivo: 16Mb</p>
                   </div>
 
                   <div class="form-group">

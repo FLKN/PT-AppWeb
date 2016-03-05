@@ -13,6 +13,8 @@ use Hash;
 //models
 use App\usuario;
 use App\empleado;
+use App\evento;
+use App\platillo;
 
 
 class DashboardControl extends Controller
@@ -60,7 +62,7 @@ class DashboardControl extends Controller
       ->withEmpleados($empleados);
   }
 
-  public function editarEmpleados($id)
+  public function editarEmpleado($id)
   {
     $user = Auth::user();
     $empleado = empleado::where('id_usuario','=',$user->id)->first();
@@ -99,7 +101,7 @@ class DashboardControl extends Controller
     return  redirect()->back();
   }
 
-  public function agregarEmpleados()
+  public function agregarEmpleado()
   {
     $user = Auth::user();
     $empleado = empleado::where('id_usuario','=',$user->id)->first();
@@ -144,9 +146,9 @@ class DashboardControl extends Controller
       $empleado_nuevo->sexo = $input["sexo"];
       if ( \Input::hasFile('foto') )
         $empleado_nuevo->foto = file_get_contents( \Input::file("foto") );
-      else{
-        $empleado_nuevo->foto = file_get_contents(public_path()."/images/usericon.jpg");;
-      }
+      else
+        $empleado_nuevo->foto = file_get_contents(public_path()."/images/usericon.jpg");
+      
       $empleado_nuevo->direccion = $input["direccion"];
       $empleado_nuevo->telefono = str_replace("-","",$input["telefono"]);
       $empleado_nuevo->hora_init = date("H:i",strtotime($input["hora_init"]));
@@ -166,4 +168,86 @@ class DashboardControl extends Controller
 
     return $id;
   }
+
+
+  public function verEventos()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+    $eventos = evento::all();
+    return view ('pt_dash.ver_eventos')
+      ->withEmpleado($empleado)
+      ->withEventos($eventos);
+  }
+
+  public function editarEvento($id)
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    $evento_editable = evento::where('id',$id)->first();
+    
+    return view ('pt_dash.editar_eventos')
+      ->withEmpleado($empleado)
+      ->withEditable($evento_editable);
+  }
+
+  public function editateEvento()
+  {
+    $input = Request::all();
+
+    $id = $input["evento_id"];
+
+    $evento = evento::find($id);
+
+    $evento->nombre = $input["nombre"];
+    $evento->ubicacion = $input["ubicacion"];
+    $evento->duracion = $input["duracion"];
+    if ( \Input::hasFile('imagen') )
+      $evento->imagen = file_get_contents( \Input::file("imagen") );
+    
+    $evento->descripcion = $input["descripcion"];
+
+    $evento->save();
+
+    return redirect()->back();
+  }
+
+  public function agregarEvento()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    return view ('pt_dash.agregar_eventos')
+      ->withEmpleado($empleado);
+  }
+
+  public function agregateEvento()
+  {
+    $input = Request::all();
+    
+    $evento_nuevo = new evento;
+
+    $evento_nuevo->nombre = $input["nombre"];
+    $evento_nuevo->ubicacion = $input["ubicacion"];
+    $evento_nuevo->duracion = $input["duracion"];
+    if ( \Input::hasFile('imagen') )
+        $evento_nuevo->imagen = file_get_contents( \Input::file("imagen") );
+      else
+        $evento_nuevo->imagen = file_get_contents(public_path()."/images/usericon.jpg"); 
+    $evento_nuevo->descripcion = $input["descripcion"];
+
+    $evento_nuevo->save();
+
+    return redirect()->back();
+    
+  }
+
+  public function eliminateEvento($id)
+  {
+    evento::where('id',$id)->delete();
+
+    return $id;
+  }
 }
+

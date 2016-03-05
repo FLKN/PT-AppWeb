@@ -37,7 +37,7 @@
         </li>
 
         <li>
-          <a href="/estadisticas">
+          <a href="/dash/estadisticas">
             <i class="fa fa-bar-chart"></i> <span>Estadisticas</span>
           </a>
         </li>
@@ -47,8 +47,8 @@
             <i class="fa fa-calendar"></i> <span>Eventos</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="   "><i class="fa fa-circle-o"></i> Ver Eventos Disponibles</a></li>
-            <li><a href="   "><i class="fa fa-circle-o"></i> Añadir Evento</a></li>
+            <li><a href="/dash/eventos"><i class="fa fa-circle-o"></i> Ver Eventos Disponibles</a></li>
+            <li><a href="/dash/eventos/agregar"><i class="fa fa-circle-o"></i> Añadir Evento</a></li>
           </ul>
         </li>
 
@@ -57,8 +57,8 @@
             <i class="fa fa-cutlery"></i> <span>Platillos</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="  "><i class="fa fa-circle-o"></i> Ver Platillos Disponibles</a></li>
-            <li><a href="  "><i class="fa fa-circle-o"></i> Añadir Platillo</a></li>
+            <li><a href="/dash/platillos"><i class="fa fa-circle-o"></i> Ver Platillos Disponibles</a></li>
+            <li><a href="/dash/platillos/agregar"><i class="fa fa-circle-o"></i> Añadir Platillo</a></li>
           </ul>
         </li>
         

@@ -1,14 +1,8 @@
-<?php 
-  function getEdad($date) {
-    list($Y,$m,$d) = explode("-",$date);
-    return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
-  }
-?>
 @extends('master')
 
 @section('content')
       
-      
+
       <!-- Main row -->
       <div class="row">
         <!-- Small boxes (Stat box) -->
@@ -17,8 +11,8 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de empleados</h3>
-              <a href="/dash/empleados/agregar" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Empleado</a>
+              <h3 class="box-title">Lista de Eventos</h3>
+              <a href="/dash/eventos/agregar" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Evento</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -26,27 +20,20 @@
                 <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Edad</th>
-                  <th>Telefono</th>
-                  <th>Direccion</th>
-                  <th>Hora de inicio</th>
-                  <th>Hora de fin</th>
+                  <th>Duración</th>
+                  <th>Imagen</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($empleados as $emp)
-                  <tr id="{{$emp->id}}">
-                    <td>{{ $emp->nombre }} {{ $emp->ap_pat }} {{ $emp->ap_mat }}</td>
-                    <td><?php echo getEdad($emp->fecha_nac); ?>
-                    </td>
-                    <td>{{ $emp->telefono }}</td>
-                    <td>{{ $emp->direccion }}</td>
-                    <td>{{ $emp->hora_init }}</td>
-                    <td>{{ $emp->hora_fin }}</td>
+                @foreach($eventos as $evnt)
+                  <tr id="{{$evnt->id}}">
+                    <td>{{ $evnt->nombre }}</td>
+                    <td>{{ $evnt->duracion }}</td>
+                    <td><img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $evnt->imagen )?>" style="height: 70px; width: 70px; border-radius: 50%; margin: 0 auto;"> </td>
                     <td>
-                      <a href="/dash/empleados/editar/{{ $emp->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-pencil"></i></a>
-                      <a href="javascript:eliminarEmpleado({{ $emp->id_usuario }},{{ $emp->id }});" title="Eliminar" alt="Eliminar" class="btn btn-sm btn-danger" style="margin: 5%;"><i class="fa fa-times"></i></a>
+                      <a href="/dash/eventos/editar/{{ $evnt->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:eliminarEvento({{ $evnt->id }});" title="Eliminar" alt="Eliminar" class="btn btn-sm btn-danger" style="margin: 5%;"><i class="fa fa-times"></i></a>
                     </td>
                   </tr>
                 @endforeach
@@ -54,11 +41,8 @@
                 <tfoot>
                   <tr>
                     <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
-                    <th>Hora de inicio</th>
-                    <th>Hora de fin</th>
+                    <th>Duración</th>
+                    <th>Imagen</th>
                     <th>Acción</th>
                   </tr>
                 </tfoot>
@@ -88,11 +72,11 @@
 
   });
 
-  function eliminarEmpleado(id_usuario,id) {
+  function eliminarEvento(  id) {
     
-    bootbox.confirm('Está seguro que desea eliminar el empleado <b>'+ id +'</b>', function(result) {
+    bootbox.confirm('Está seguro que desea eliminar el evento <b>'+ id +'</b>', function(result) {
       if(result){
-        var url = "/dash/empleados/eliminate/"+id_usuario; 
+        var url = "/dash/eventos/eliminate/"+id; 
         $.ajax({
           type: 'GET',
           url: url,
