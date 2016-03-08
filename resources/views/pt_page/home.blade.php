@@ -14,36 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="/plugins/fullPage/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="/css/examples.css" />
 	
-	<style>
-
-		/* Sections
-		 * --------------------------------------- */
-		#section0 img,
-		#section1 img{
-			margin: 20px 0 0 0;
-		}
-		#section2 img{
-			margin: 20px 0 0 52px;
-		}
-		#section3 img{
-			bottom: 0px;
-			position: absolute;
-			margin-left: -420px;
-		}
-		.intro p{
-			width: 50%;
-			margin: 0 auto;
-			font-size: 1.5em;
-		}
-		.twitter-share-button{
-			position: absolute;
-			z-index: 99;
-			right: 149px;
-			top: 9px;
-		}
-
-	</style>
-
 	<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 	<script src="/plugins/jQueryUI/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/plugins/fullPage/jquery.fullPage.min.js"></script>
@@ -99,8 +69,45 @@
 		</div>
 		<div class="section" id="section2">
 			<div class="intro">
-				<p>Comunicate con nosotros</p>
-				HACER UN FORMULARIO DE CONTACTO
+				<h2>Comunicate con nosotros</h2>
+				<form action="/contacto/enviar"  method="post" id="sky-form" class="sky-form">
+			        <fieldset>
+			            <label class="label">Nombre</label>
+		                <label class="input"> <i class="icon-append icon-user"></i>
+	        		        <input type="text" name="name" id="name">
+	    	            </label>
+	
+						<label class="label">E-mail</label>
+						<label class="input"> <i class="icon-append icon-envelope-alt"></i>
+							<input type="email" value="{{ isset($_SESSION['mdc_correo'])? $_SESSION['mdc_correo']:'' }}" name="email" id="email">
+						</label>
+
+						<label class="label">Asunto</label>
+						<label class="input"> <i class="icon-append icon-tag"></i>
+							<input type="text" name="subject" id="subject">
+						</label>
+
+						<label class="label">Mensaje</label>
+						<label class="textarea"> <i class="icon-append icon-comment"></i>
+							<textarea rows="4" name="message" id="message"></textarea>
+						</label>
+
+						<label class="checkbox"></label>
+						<!--<input type="checkbox" name="copy" id="copy">-->
+
+						<input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" /><br>
+						<!--<i></i>Enviar una copia a tu correo<br />-->
+
+						<input type="checkbox" name="aviso" id="aviso">
+						<i></i>Acepto los <a href="/terminos-y-condciones" target="_blank">Términos y Condiciones</a> y
+						<a href="/aviso-de-privacidad">Aviso de Privacidad</a>
+					</fieldset>
+					
+					<footer>
+						<button type="submit" class="btn-form" >Enviar</button>
+					</footer>
+
+		        </form>
 			</div>
 		</div>
 		<div class="section fp-auto-height" id="section3">
