@@ -44,8 +44,8 @@ h1,h2,h3,h4,h5,h6 {
 /* Custom CSS
  * --------------------------------------- */
 body{
-	font-family: arial,helvetica;
-	color: #fff;
+	font-family: arial,helvetica !important;
+	color: #fff !important 
 }
 .wrap{
 	margin-left: auto;
@@ -54,16 +54,20 @@ body{
 	position: relative;
 }
 h1{
-	font-size: 6em;
+	font-size: 6em !important;
 }
 h2{
-	font-size: 4em;
+	font-size: 4em !important;
 }
 p{
-	font-size: 1.5em;
+	font-size: 1.5em !important;
 }
 span{
-	font-size: 1.2em;
+	font-size: 1.2em !important;
+}
+label {
+	font-weight: lighter;
+	font-size: 1.2em !important;
 }
 .intro p{
 	margin: 0 auto;

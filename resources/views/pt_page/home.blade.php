@@ -13,11 +13,14 @@
 
 	<link rel="stylesheet" type="text/css" href="/plugins/fullPage/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="/css/examples.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 	
 	<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 	<script src="/plugins/jQueryUI/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/plugins/fullPage/jquery.fullPage.min.js"></script>
 	<script type="text/javascript" src="/js/examples.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -70,41 +73,42 @@
 		<div class="section" id="section2">
 			<div class="intro">
 				<h2>Comunicate con nosotros</h2>
-				<form action="/contacto/enviar"  method="post" id="sky-form" class="sky-form">
+				<form action="/contacto/enviar"  method="post">
 			        <fieldset>
-			            <label class="label">Nombre</label>
-		                <label class="input"> <i class="icon-append icon-user"></i>
-	        		        <input type="text" name="name" id="name">
-	    	            </label>
+			        	<div class="col col-12">
+				            <label class="label"><i class="fa fa-user"></i> Nombre</label>
+			                <label class="form-group"> 
+		        		        <input type="text" class="form-control" name="nombre" id="nombre">
+		    	            </label>
+	    	            </div>
+
+	    	            <div class="col col-12">
+				            <label class="label"><i class="fa fa-envelope"></i> Correo</label>
+			                <label class="form-group"> 
+		        		        <input type="email" class="form-control" name="email" id="email">
+		    	            </label>
+	    	            </div>
 	
-						<label class="label">E-mail</label>
-						<label class="input"> <i class="icon-append icon-envelope-alt"></i>
-							<input type="email" value="{{ isset($_SESSION['mdc_correo'])? $_SESSION['mdc_correo']:'' }}" name="email" id="email">
-						</label>
+						<div class="col col-12">
+				            <label class="label"><i class="fa fa-tag"></i> Asunto</label>
+			                <label class="form-group"> 
+		        		        <input type="text" class="form-control" name="asunto" id="asunto">
+		    	            </label>
+	    	            </div>
 
-						<label class="label">Asunto</label>
-						<label class="input"> <i class="icon-append icon-tag"></i>
-							<input type="text" name="subject" id="subject">
-						</label>
-
-						<label class="label">Mensaje</label>
-						<label class="textarea"> <i class="icon-append icon-comment"></i>
-							<textarea rows="4" name="message" id="message"></textarea>
-						</label>
-
-						<label class="checkbox"></label>
-						<!--<input type="checkbox" name="copy" id="copy">-->
+						<div class="col col-12">
+				            <label class="label"><i class="fa fa-comment"></i> Mensaje</label>
+			                <label class="form-group"> 
+		        		        <textarea rows="4" name="mensaje" id="mensaje"></textarea>
+		    	            </label>
+	    	            </div>
 
 						<input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" /><br>
-						<!--<i></i>Enviar una copia a tu correo<br />-->
-
-						<input type="checkbox" name="aviso" id="aviso">
-						<i></i>Acepto los <a href="/terminos-y-condciones" target="_blank">Términos y Condiciones</a> y
-						<a href="/aviso-de-privacidad">Aviso de Privacidad</a>
+						
 					</fieldset>
 					
 					<footer>
-						<button type="submit" class="btn-form" >Enviar</button>
+						<button type="submit" class="btn btn-default" >Enviar</button>
 					</footer>
 
 		        </form>
@@ -112,10 +116,10 @@
 		</div>
 		<div class="section fp-auto-height" id="section3">
 			<div class="intro">
-				<h1>Working On Tablets</h1>
-				<p>
-					Designed to fit to different screen sizes as well as tablet and mobile devices.
-				</p>
+				<h3>UPIITA Domotics</h3>
+				<span>
+					Es un proyecto realizado por estudiantes de Ingeniería en Telemática de la Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas del Instituto Politécnico Nacional en la CD de México. 
+				</san>
 			</div>
 			
 		</div>
