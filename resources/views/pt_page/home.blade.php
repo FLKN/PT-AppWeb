@@ -13,7 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/plugins/fullPage/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="/css/examples.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 	
 	<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
@@ -72,7 +72,7 @@
 		</div>
 		<div class="section" id="section2">
 			<div class="intro">
-				<h2>Comunicate con nosotros</h2>
+				<h2>Comunicate con nosotros</h2><br><br><br><br>
 				<form action="/contacto/enviar"  method="post">
 			        <fieldset>
 			        	<div class="col col-12">
@@ -99,7 +99,7 @@
 						<div class="col col-12">
 				            <label class="label"><i class="fa fa-comment"></i> Mensaje</label>
 			                <label class="form-group"> 
-		        		        <textarea rows="4" name="mensaje" id="mensaje"></textarea>
+		        		        <textarea rows="4" class="form-control" name="mensaje" id="mensaje"></textarea>
 		    	            </label>
 	    	            </div>
 
