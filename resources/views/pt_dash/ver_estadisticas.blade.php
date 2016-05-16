@@ -26,7 +26,7 @@
                 <thead>
                 <tr>
                   <th>Sensor</th>
-                  <th>Tiempor de vida</th>
+                  <th>Tiempo de vida</th>
                   <th>Tiempo de uso</th>
                   <th>Energia consumida</th>
                   <th>Acción</th>

@@ -15,7 +15,7 @@
 
       <div class="row">
       
-        <form action="/dash/empleados/agregate" autocomplete="off" validate method="POST" enctype="multipart/form-data">
+        <form action="/dash/platillos/agregate" autocomplete="off" validate method="POST" enctype="multipart/form-data">
 
             <!-- left column -->      
             <div class="col-md-6">
