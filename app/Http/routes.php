@@ -13,6 +13,16 @@ Route::post('/dash/empleados/editate', 'DashboardControl@editateEmpleado');
 Route::post('/dash/empleados/agregate', 'DashboardControl@agregateEmpleado');
 Route::get('/dash/empleados/eliminate/{id?}', 'DashboardControl@eliminateEmpleado');
 
+Route::get('/dash/estadisticas', 'DashboardControl@verEstadisticas');
+
+
+Route::get('/dash/platillos', 'DashboardControl@verPlatillos');
+Route::get('/dash/platillos/agregar', 'DashboardControl@agregarPlatillo');
+Route::get('/dash/platillos/editar/{id?}', 'DashboardControl@editarPlatillo');
+Route::post('/dash/platillos/editate', 'DashboardControl@editatePlatillo');
+Route::post('/dash/platillos/agregate', 'DashboardControl@agregatePlatillo');
+Route::get('/dash/platillos/eliminate/{id?}', 'DashboardControl@eliminatePlatillo');
+
 Route::get('/dash/eventos', 'DashboardControl@verEventos');
 Route::get('/dash/eventos/agregar', 'DashboardControl@agregarEvento');
 Route::get('/dash/eventos/editar/{id?}', 'DashboardControl@editarEvento');

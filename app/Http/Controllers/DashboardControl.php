@@ -15,13 +15,12 @@ use App\usuario;
 use App\empleado;
 use App\evento;
 use App\platillo;
-
+use App\estadistica;
 
 class DashboardControl extends Controller
 {
   public function login(){
     return view ('pt_dash.login');
-
   }
   public function logout() {
     Auth::logout();
@@ -249,5 +248,93 @@ class DashboardControl extends Controller
 
     return $id;
   }
+
+  public function verEstadisticas()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+    $estadistica = estadistica::all();
+    return view ('pt_dash.ver_estadisticas')
+      ->withEmpleado($empleado)
+      ->withEstadistica($estadistica);
+  }
+  public function eliminatePlatillo($id)
+  {
+    platillo::where('id',$id)->delete();
+
+    return $id;
+  }
+
+  public function verPlatillos()
+  {
+        $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+    $platillo = platillo::all();
+    return view ('pt_dash.ver_platillos')
+      ->withEmpleado($empleado)
+      ->withPlatillo($platillo);
+    }
+  public function editatePlatillo()
+  {
+    $input = Request::all();
+
+    $id = $input["platillo_id"];
+
+    $platillo = platillo::find($id);
+
+    $platillo->nombre = $input["nombre"];
+    $platillo->descropcion = $input["descripcion"];
+    $platillo->precio = $input["precio"];
+    if ( \Input::hasFile('imagen') )
+      $platillo->imagen = file_get_contents( \Input::file("imagen") );
+    
+      $platillo->save();
+
+    return redirect()->back();
+  }
+
+  public function editarPlatillo($id)
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    $platillo_editable = platillo::where('id',$id)->first();
+    
+    return view ('pt_dash.editar_platillos')
+      ->withEmpleado($empleado)
+      ->withEditable($platillo_editable);
+  }
+
+  
+ 
+ public function agregarPlatillo()
+  {
+    $user = Auth::user();
+    $empleado = empleado::where('id_usuario','=',$user->id)->first();
+
+    return view ('pt_dash.agregar_platillos')
+      ->withEmpleado($empleado);
+  }
+  
+  public function agregatePlatillo()
+  {
+    $input = Request::all();
+    
+    $platillo_nuevo = new platillo;
+
+    $platillo_nuevo->nombre = $input["nombre"];
+    $platillo_nuevo->descripcion = $input["descripcion"];
+    $platillo_nuevo->precio = $input["precio"];
+    if ( \Input::hasFile('imagen') )
+        $platillo_nuevo->imagen = file_get_contents( \Input::file("imagen") );
+      else
+        $platillo_nuevo->imagen = file_get_contents(public_path()."/images/usericon.jpg"); 
+
+    $platillo_nuevo->save();
+
+    return redirect()->back();
+    
+  }
+
 }
 
