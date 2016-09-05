@@ -16,7 +16,7 @@ class CreatePlatillosTable extends Migration {
 			$table->increments('id');
           	$table->string('nombre',150);
           	$table->string('descripcion',350);
-          	$table->double('precio');
+          	$table->float('precio');
           	$table->timestamps();
         });
 	    

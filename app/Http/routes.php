@@ -19,3 +19,17 @@ Route::get('/dash/eventos/editar/{id?}', 'DashboardControl@editarEvento');
 Route::post('/dash/eventos/editate', 'DashboardControl@editateEvento');
 Route::post('/dash/eventos/agregate', 'DashboardControl@agregateEvento');
 Route::get('/dash/eventos/eliminate/{id?}', 'DashboardControl@eliminateEvento');
+
+Route::get('/dash/platillos', 'DashboardControl@verPlatillos');
+Route::get('/dash/platillos/agregar', 'DashboardControl@agregarPlatillo');
+Route::get('/dash/platillos/editar/{id?}', 'DashboardControl@editarPlatillo');
+Route::post('/dash/platillos/editate', 'DashboardControl@editatePlatillo');
+Route::post('/dash/platillos/agregate', 'DashboardControl@agregatePlatillo');
+Route::get('/dash/platillos/eliminate/{id?}', 'DashboardControl@eliminatePlatillo');
+
+Route::get('/dash/habitaciones', 'DashboardControl@verHabitaciones');
+Route::post('/dash/habitaciones/agregate', 'DashboardControl@agregateHabitacion');
+Route::post('/dash/habitaciones/editate', 'DashboardControl@editateHabitacion');
+Route::get('/dash/habitaciones/ocupar/{id?}', 'DashboardControl@ocuparHabitacion');
+Route::post('/dash/habitaciones/desocupate', 'DashboardControl@desocupateHabitacion');
+Route::post('/dash/habitaciones/ocupate', 'DashboardControl@ocupateHabitacion');

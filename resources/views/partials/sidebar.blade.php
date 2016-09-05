@@ -20,7 +20,7 @@
             <i class="fa fa-bed"></i> <span>Habitaciones</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="  "><i class="fa fa-circle-o"></i> Ver Habitaciones</a></li>
+            <li><a href="/dash/habitaciones"><i class="fa fa-circle-o"></i> Ver Habitaciones</a></li>
             <li><a href="  "><i class="fa fa-circle-o"></i> Hacer Registro</a></li>
           </ul>
         </li>

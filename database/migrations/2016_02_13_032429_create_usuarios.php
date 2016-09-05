@@ -16,6 +16,7 @@ class CreateUsuarios extends Migration
           $table->increments('id');
           $table->string('user_name');
           $table->string('password');
+          $table->string('app_pass')->nullable();
           $table->integer('nivel');
           $table->string('remember_token');
           $table->timestamps();

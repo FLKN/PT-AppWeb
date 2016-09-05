@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabitacionsTable extends Migration {
+class CreateSensorsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,12 @@ class CreateHabitacionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('habitacions', function(Blueprint $table)
+		Schema::create('sensors', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
+			$table->string('nombre');
+			$table->integer('estado');
+          	$table->timestamps();
 		});
 	}
 
@@ -26,7 +28,7 @@ class CreateHabitacionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('habitacions');
+		Schema::drop('sensors');
 	}
 
 }
