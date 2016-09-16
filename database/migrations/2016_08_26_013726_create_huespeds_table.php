@@ -27,9 +27,6 @@ class CreateHuespedsTable extends Migration {
           	$table->foreign('id_habitacion')->references('id')->on('habitacions')->onDelete('cascade');
           	$table->integer('id_usuario')->unsigned();
           	$table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
-
-
-			$table->timestamps();
 		});
 		DB::statement("ALTER TABLE huespeds ADD COLUMN foto LONGBLOB AFTER sexo");
 	}

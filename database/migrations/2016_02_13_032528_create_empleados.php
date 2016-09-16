@@ -25,7 +25,6 @@ class CreateEmpleados extends Migration
           $table->time('hora_fin');
           $table->integer('id_usuario')->unsigned();
           $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
-          $table->timestamps();
         });
         DB::statement("ALTER TABLE empleados ADD COLUMN foto LONGBLOB AFTER sexo");
     }

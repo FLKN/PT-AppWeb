@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadisticasTable extends Migration {
+class CreateSensorVentilacionsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateEstadisticasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('estadisticas', function(Blueprint $table)
+		Schema::create('sensor_ventilacions', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->float('t_vida');
-          	$table->float('t_uso');
-          	$table->double('energia_cons');
-          	$table->integer('id_sensor')->unsigned();
+			$table->float('temperatura');
+			$table->float('intensidad');
+			$table->integer('id_sensor')->unsigned();
           	$table->foreign('id_sensor')->references('id')->on('sensors')->onDelete('cascade');
 		});
 	}
@@ -30,7 +29,7 @@ class CreateEstadisticasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('estadisticas');
+		Schema::drop('sensor_ventilacions');
 	}
 
 }

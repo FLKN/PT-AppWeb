@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSensorsTable extends Migration {
+class CreateSensorLuzsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreateSensorsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sensors', function(Blueprint $table)
+		Schema::create('sensor_luzs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->integer('estado');
+			$table->float('lumen');
+			$table->integer('id_sensor')->unsigned();
+          	$table->foreign('id_sensor')->references('id')->on('sensors')->onDelete('cascade');
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateSensorsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sensors');
+		Schema::drop('sensor_luzs');
 	}
 
 }

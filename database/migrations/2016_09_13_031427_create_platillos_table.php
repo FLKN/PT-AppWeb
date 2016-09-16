@@ -12,12 +12,14 @@ class CreatePlatillosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('platillos', function(Blueprint $table) {
+		Schema::create('platillos', function(Blueprint $table)
+		{
 			$table->increments('id');
           	$table->string('nombre',150);
           	$table->string('descripcion',350);
           	$table->float('precio');
-          	$table->timestamps();
+			$table->integer('id_orden')->unsigned();
+          	$table->foreign('id_orden')->references('id')->on('ordens')->onDelete('cascade');
         });
 	    
         DB::statement("ALTER TABLE platillos ADD COLUMN imagen LONGBLOB AFTER precio");

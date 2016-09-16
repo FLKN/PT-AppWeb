@@ -12,17 +12,16 @@ class CreateEventosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('eventos', function(Blueprint $table) {
+		Schema::create('eventos', function(Blueprint $table)
+		{
 			$table->increments('id');
           	$table->string('nombre',70);
           	$table->integer('duracion');
           	$table->string('ubicacion',100);
           	$table->string('descripcion',200);
-          	$table->timestamps();
+          	$table->integer('id_agenda')->unsigned();
+          	$table->foreign('id_agenda')->references('id')->on('agendas')->onDelete('cascade');
         });
-	    
-        DB::statement("ALTER TABLE eventos ADD COLUMN imagen LONGBLOB AFTER descripcion");
-		
 	}
 
 	/**
@@ -36,4 +35,3 @@ class CreateEventosTable extends Migration {
 	}
 
 }
-

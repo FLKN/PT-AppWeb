@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class evento extends Model {
+class agenda extends Model {
 
 	//
 
