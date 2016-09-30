@@ -19,8 +19,6 @@ class CreateEventosTable extends Migration {
           	$table->integer('duracion');
           	$table->string('ubicacion',100);
           	$table->string('descripcion',200);
-          	$table->integer('id_agenda')->unsigned();
-          	$table->foreign('id_agenda')->references('id')->on('agendas')->onDelete('cascade');
         });
 	}
 

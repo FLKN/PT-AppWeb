@@ -18,8 +18,6 @@ class CreatePlatillosTable extends Migration {
           	$table->string('nombre',150);
           	$table->string('descripcion',350);
           	$table->float('precio');
-			$table->integer('id_orden')->unsigned();
-          	$table->foreign('id_orden')->references('id')->on('ordens')->onDelete('cascade');
         });
 	    
         DB::statement("ALTER TABLE platillos ADD COLUMN imagen LONGBLOB AFTER precio");

@@ -15,10 +15,11 @@ class CreateOrdensTable extends Migration {
 		Schema::create('ordens', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamp('hora_creacion');
+			$table->float('costo_total');
 			$table->integer('cant_platillos');
-			$table->integer('id_huesped')->unsigned();
-          	$table->foreign('id_huesped')->references('id')->on('huespeds')->onDelete('cascade');	
+			$table->timestamp('hora_creacion');
+			$table->integer('id_habitacion')->unsigned();
+          	$table->foreign('id_habitacion')->references('id')->on('habitacions')->onDelete('cascade');	
 		});
 	}
 
