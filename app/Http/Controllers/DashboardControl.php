@@ -239,7 +239,7 @@ class DashboardControl extends Controller
     if ( \Input::hasFile('imagen') )
         $evento_nuevo->imagen = file_get_contents( \Input::file("imagen") );
       else
-        $evento_nuevo->imagen = file_get_contents(public_path()."/images/usericon.jpg"); 
+        $evento_nuevo->imagen = file_get_contents(public_path()."/images/turismo.jpg"); 
     $evento_nuevo->descripcion = $input["descripcion"];
 
     $evento_nuevo->save();
@@ -318,7 +318,7 @@ class DashboardControl extends Controller
     if ( \Input::hasFile('imagen') )
         $platillo_nuevo->imagen = file_get_contents( \Input::file("imagen") );
       else
-        $platillo_nuevo->imagen = file_get_contents(public_path()."/images/usericon.jpg"); 
+        $platillo_nuevo->imagen = file_get_contents(public_path()."/images/tacos.jpg"); 
 
     $platillo_nuevo->save();
 
@@ -345,11 +345,26 @@ class DashboardControl extends Controller
 
   public function agregateHabitacion()
   {
-    return 0;
+    $input = Request::all();
+
+    $habitacion_nueva = new habitacion;
+    $habitacion_nueva->precio = $input["precio"];
+
+    $habitacion_nueva->save();
+
+    return 0; 
   }
 
   public function editateHabitacion()
   {
+    $input = Request::all();
+
+    $id = $input["habitacion_id"];
+
+    $habitacion = habitacion::find($id);
+    $habitacion->precio = $input["precio"];
+    $habitacion->save();
+
     return 0;
   }
 

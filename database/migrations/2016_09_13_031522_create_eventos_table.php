@@ -19,6 +19,7 @@ class CreateEventosTable extends Migration {
           	$table->integer('duracion');
           	$table->string('ubicacion',100);
           	$table->string('descripcion',200);
+          	$table->timestamps();
         });
 	}
 

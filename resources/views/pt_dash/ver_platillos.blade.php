@@ -38,7 +38,7 @@
                     <td>{{ $pla->nombre }}</td>
                     <td>{{ $pla->descripcion }}</td>
                     <td>{{ $pla->precio }}</td>
-                    <td>{{ $pla->imagen }}</td>
+                    <td><img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $pla->imagen )?>" style="height: 70px; width: 70px; border-radius: 50%; margin: 0 auto;"> </td>
                     <td>
                       <a href="/dash/platillos/editar/{{ $pla->id }}" title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin: 5%;"><i class="fa fa-pencil"></i></a>
                       <a href="javascript:eliminarPlatillo({{ $pla->id_usuario }} {{ $pla->id }});" title="Eliminar" alt="Eliminar" class="btn btn-sm btn-danger" style="margin: 5%;"><i class="fa fa-times"></i></a>

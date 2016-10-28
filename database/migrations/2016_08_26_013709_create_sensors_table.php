@@ -21,6 +21,7 @@ class CreateSensorsTable extends Migration {
 			$table->float('t_vida');
 			$table->integer('id_habitacion')->unsigned();
           	$table->foreign('id_habitacion')->references('id')->on('habitacions')->onDelete('cascade');
+          	$table->timestamps();
 		});
 	}
 

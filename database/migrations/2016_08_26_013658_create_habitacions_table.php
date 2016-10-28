@@ -17,6 +17,7 @@ class CreateHabitacionsTable extends Migration {
 			$table->increments('id');
 			$table->float('precio');
 			$table->boolean('estado');
+			$table->timestamps();
 		});
 	}
 

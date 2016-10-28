@@ -21,7 +21,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/dash/habitaciones"><i class="fa fa-circle-o"></i> Ver Habitaciones</a></li>
-            <li><a href="  "><i class="fa fa-circle-o"></i> Hacer Registro</a></li>
+            <li><a href="/dash/habitaciones/ocupar/{id?}"><i class="fa fa-circle-o"></i> Hacer Registro</a></li>
           </ul>
         </li>
 

@@ -18,7 +18,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Habitaciones</h3>
-              <a href="javascript:agregarHabitacion();" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Huesped</a>
+              <a href="javascript:agregarHabitacion();" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Habitación</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -43,9 +43,9 @@
                     @else
                       <td><span id="stateText_{{ $hab->id }}">Ocupada</span></td>
                     @endif
-                    <td>${{ $hab->precio }} MXN</td>
+                    <td><span id="priceText_{{ $hab->id }}">${{ $hab->precio }} MXN</span></td>
                     <td>
-                      <a href="javascript:editarHabitacion();" id="add_{{ $hab->id }}" title="Agregar" alt="Agregar" class="btn btn-sm btn-info" style="margin: 0 0 0 5%;"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:editarHabitacion({{ $hab->id }});" id="add_{{ $hab->id }}" title="Agregar" alt="Agregar" class="btn btn-sm btn-info" style="margin: 0 0 0 5%;"><i class="fa fa-pencil"></i></a>
                       @if( $hab->estado  == 0 )
                         <a href="/dash/habitaciones/ocupar/{{ $hab->id }}" id="action_{{ $hab->id }}" title="Check-In" alt="Check-In" class="btn btn-sm btn-success" style="margin: 0 0 0 5%;"><i class="fa fa-check"></i></a>
                       @else
@@ -140,13 +140,14 @@
     });
   }
 
-  function editarHabitacion() {
-    bootbox.prompt("Indica el nuevo recio de la habitación", function(result) {
+  function editarHabitacion(id) {
+    bootbox.prompt("Indica el nuevo precio de la habitación " + id, function(result) {
       if (result === "") {
         
       } else {
         var url = "/dash/habitaciones/editate";
         $datos = {
+          'habitacion_id': id,
           'precio': result, 
           '_token' : '{{{ csrf_token() }}}'
         };
@@ -156,9 +157,7 @@
           dataType: 'JSON',
           data: $datos,
           success: function (data){
-            setTimeout(function(){
-              location.reload();
-            }, 2000);
+            $('#priceText_'+id).html("$"+result+" MXN");
           }
         });
       }

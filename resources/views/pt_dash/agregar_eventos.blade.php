@@ -36,7 +36,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
-                      <input type="text" name="nombre" class="form-control" placeholder="Nombre del evento" required>
+                      <input type="text" name="nombre" class="form-control" placeholder="Nombre del evento (requerido)" required>
                     </div>
                   </div>
 
@@ -45,7 +45,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                      <input type="text" name="ubicacion" class="form-control" placeholder="Ubicación" required>
+                      <input type="text" name="ubicacion" class="form-control" placeholder="Ubicación (requerido)" required>
                     </div>
                   </div>
                   
@@ -60,7 +60,7 @@
 
                   <div class="form-group">
                     <div class="input-group col-centered">
-                      <textarea class="textarea" name="descripcion" placeholder="Descripción" maxlength="200" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                      <textarea class="textarea" name="descripcion" placeholder="Descripción (requerido)" maxlength="200" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                       <p class="help-block">Hasta 200 caracteres</p>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
                   <div class="form-group" >
                     <label for="exampleInputFile">Imagen</label><br>
                     <div class="col-centered">
-                      <img id="preview" src="/images/usericon.jpg" alt="Foto" style="height: 200px; width: 200px; border-radius: 25%;"> 
+                      <img id="preview" src="/images/turismo.jpg" alt="Foto" style="height: 200px; width: 200px; border-radius: 25%;"> 
                     </div>
                     <br><br>
                     <input type="file" accept="image/*" name="imagen" id="foto" onchange="javascript:cambia_img();">

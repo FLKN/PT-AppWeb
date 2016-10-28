@@ -19,6 +19,7 @@ class CreateSensorVentilacionsTable extends Migration {
 			$table->float('intensidad');
 			$table->integer('id_sensor')->unsigned();
           	$table->foreign('id_sensor')->references('id')->on('sensors')->onDelete('cascade');
+          	$table->timestamps();
 		});
 	}
 

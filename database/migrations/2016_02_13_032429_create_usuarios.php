@@ -19,6 +19,7 @@ class CreateUsuarios extends Migration
           $table->string('app_pass')->nullable();
           $table->integer('nivel');
           $table->string('remember_token');
+          $table->timestamps();
         });
     }
 

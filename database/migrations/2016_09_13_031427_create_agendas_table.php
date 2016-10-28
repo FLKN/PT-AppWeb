@@ -19,6 +19,7 @@ class CreateAgendasTable extends Migration {
 			$table->time('hora_fin');
 			$table->integer('id_habitacion')->unsigned();
           	$table->foreign('id_habitacion')->references('id')->on('habitacions')->onDelete('cascade');	
+          	$table->timestamps();
 		});
 	}
 

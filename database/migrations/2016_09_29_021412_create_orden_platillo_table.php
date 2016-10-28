@@ -18,6 +18,7 @@ class CreateOrdenPlatilloTable extends Migration {
           	$table->foreign('id_orden')->references('id')->on('ordens')->onDelete('cascade');	
           	$table->integer('id_platillo')->unsigned();
           	$table->foreign('id_platillo')->references('id')->on('platillos')->onDelete('cascade');	
+          	$table->timestamps();
 		});
 	}
 

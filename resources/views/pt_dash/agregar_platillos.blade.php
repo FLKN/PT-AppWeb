@@ -36,7 +36,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
-                      <input type="text" name="nombre" class="form-control" placeholder="Nombre del platillo" required>
+                      <input type="text" name="nombre" class="form-control" placeholder="Nombre del platillo (requerido)" required>
                     </div>
                   </div>
 
@@ -45,7 +45,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                      <input type="text" name="descripcion" class="form-control" placeholder="Descripcion" required>
+                      <input type="text" name="descripcion" class="form-control" placeholder="Descripcion (requerido)" required>
                     </div>
                   </div>
                   
@@ -53,7 +53,7 @@
                   
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                    <input type="int" name="precio" class="form-control" placeholder="Precio ($)" required>
+                    <input type="int" name="precio" class="form-control" placeholder="Precio ($)  (requerido)" required>
                   </div>
                   
                   <br>
@@ -63,7 +63,7 @@
                   <div class="form-group" >
                     <label for="exampleInputFile">Imagen</label><br>
                     <div class="col-centered">
-                      <img id="preview" src="/images/foodicon.png" alt="Foto" style="height: 200px; width: 200px; border-radius: 25%;"> 
+                      <img id="preview" src="/images/tacos.jpg" alt="Foto" style="height: 200px; width: 200px; border-radius: 25%;"> 
                     </div>
                     <br><br>
                     <input type="file" accept="image/*" name="imagen" id="foto" onchange="javascript:cambia_img();">

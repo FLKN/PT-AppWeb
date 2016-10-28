@@ -18,6 +18,7 @@ class CreateAgendaEventoTable extends Migration {
           	$table->foreign('id_agenda')->references('id')->on('agendas')->onDelete('cascade');	
           	$table->integer('id_evento')->unsigned();
           	$table->foreign('id_evento')->references('id')->on('eventos')->onDelete('cascade');	
+          	$table->timestamps();
 		});
 	}
 

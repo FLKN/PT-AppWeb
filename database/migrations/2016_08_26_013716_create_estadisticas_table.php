@@ -19,6 +19,7 @@ class CreateEstadisticasTable extends Migration {
           	$table->double('energia_cons');
           	$table->integer('id_sensor')->unsigned();
           	$table->foreign('id_sensor')->references('id')->on('sensors')->onDelete('cascade');
+          	$table->timestamps();
 		});
 	}
 

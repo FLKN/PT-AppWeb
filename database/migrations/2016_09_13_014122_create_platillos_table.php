@@ -18,6 +18,7 @@ class CreatePlatillosTable extends Migration {
           	$table->string('nombre',150);
           	$table->string('descripcion',350);
           	$table->float('precio');
+          	$table->timestamps();
         });
 	    
         DB::statement("ALTER TABLE platillos ADD COLUMN imagen LONGBLOB AFTER precio");
