@@ -27,14 +27,14 @@
                 <div class="box-body">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre (requerido)" required>
                   </div>
 
                   <br>
 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="ap_pat" class="form-control" placeholder="Apellido Paterno" required>
+                    <input type="text" name="ap_pat" class="form-control" placeholder="Apellido Paterno (requerido)" required>
                   </div>
 
                   <br>
@@ -48,7 +48,7 @@
 
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña (requerido)" required>
                   </div>
                 </div>
               </div>
@@ -63,10 +63,18 @@
                     <label>Teléfono (Móvil)</label>
                     <div class="input-group">
                       <div class="input-group-addon">
-                        <i class="fa fa-phone"></i>
+                        <i class="fa fa-phone"></i> (requerido)
                       </div>
                       <input type="text" name="telefono" class="form-control" data-inputmask="'mask': ['99-9999-9999', '99 9999-9999']" data-mask required>
                     </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Nivel de empleado</label>
+                    <select class="form-control" name="nivel_empleado">
+                      <option value="1" selected>Empleado Maestro</option>
+                      <option value="2">Empleado Simple</option>
+                    </select>
                   </div>
 
                   <div class="bootstrap-timepicker">
@@ -74,7 +82,7 @@
                       <label>Hora de inicio</label>
                       <div class="input-group">
                         <div class="input-group-addon">
-                          <i class="fa fa-clock-o"></i>
+                          <i class="fa fa-clock-o"></i> (requerido)
                         </div>
                         <input type="text" name="hora_init" class="form-control timepicker1" required>
                       </div>
@@ -86,7 +94,7 @@
                       <label>Hora de fin</label>
                       <div class="input-group">
                         <div class="input-group-addon">
-                          <i class="fa fa-clock-o"></i>
+                          <i class="fa fa-clock-o"></i> (requerido)
                         </div>
                         <input type="text" name="hora_fin" class="form-control timepicker2" required>
                       </div>
@@ -111,7 +119,7 @@
                     <label>Fecha de Nacimiento</label>
                     <div class="input-group">
                       <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+                        <i class="fa fa-calendar"></i> (requerido)
                       </div>
                       <input type="date" name="fecha_nac" class="form-control" required>
                     </div>
@@ -140,16 +148,10 @@
                     <p class="help-block">Tamaño máximo de archivo: 16Mb</p>
                   </div>
 
-                  <div class="form-group">
-                    <label>Dirección</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-home"></i>
-                      </div>
-                      <input type="text" name="direccion" class="form-control" required>
-                    </div>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                    <input type="text" name="direccion" class="form-control" placeholder="Dirección (requerido)" required>
                   </div>
-                </div>
 
 
                 <div class="box-footer">

@@ -52,7 +52,4 @@ class usuario extends Model implements AuthenticatableContract, CanResetPassword
     public function setPasswordAttribute($password) {
         $this->password= Hash::make($password);
     }
-
-
-
 }

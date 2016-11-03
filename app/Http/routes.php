@@ -33,3 +33,5 @@ Route::post('/dash/habitaciones/editate', 'DashboardControl@editateHabitacion');
 Route::get('/dash/habitaciones/ocupar/{id?}', 'DashboardControl@ocuparHabitacion');
 Route::post('/dash/habitaciones/desocupate', 'DashboardControl@desocupateHabitacion');
 Route::post('/dash/habitaciones/ocupate', 'DashboardControl@ocupateHabitacion');
+
+Route::get('/dash/estadisticas', 'DashboardControl@verEstadisticas');

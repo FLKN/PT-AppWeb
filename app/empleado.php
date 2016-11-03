@@ -4,9 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class empleado extends Model {
 
-	protected $table = 'empleados';
+	public function scopeSelectuserid($query,$id_empleado){
+		$query->select('empleados.id_usuario')
+			->join('usuarios','empleados.id_usuario','=','usuarios.id')
+			->where('empleados.id',$id_empleado);
 
-    protected $fillable = ['nombre', 'ap_pat', 'ap_mat', 
-    	'fecha_nac', 'sexo', 'foto', 'direccion', 'telefono', 
-    	'hora_init', 'hora_fin', 'id_usuario'];
+    }
+
 }

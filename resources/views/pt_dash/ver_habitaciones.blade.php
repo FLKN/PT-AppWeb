@@ -18,7 +18,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Habitaciones</h3>
-              <a href="javascript:agregarHabitacion();" title="Agregar" alt="Agregar" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Habitación</a>
+              <a href="javascript:agregarHabitacion();" title="Editar Precio" alt="Editar Precio" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Agregar Habitación</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">

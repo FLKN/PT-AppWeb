@@ -41,8 +41,8 @@
                 <div class="box-body">
                   <div class="box-footer">
                     <input type="hidden" value="{{{ csrf_token() }}}" name="_token"/>
-                    <input type="hidden" name="id_habitacion" val="{{ $habitacionid }}"/>
-                    <input type="hidden" name="num_huespedes" val=""/>
+                    <input type="hidden" name="id_habitacion" value="{{ $habitacionid }}"/>
+                    <input type="hidden" name="num_huespedes" value=""/>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                   </div>
                 </div>
@@ -102,14 +102,14 @@
             '<div class="box-body">'+
               '<div class="input-group">'+
                 '<span class="input-group-addon"><i class="fa fa-user"></i></span>'+
-                '<input type="text" name="nombre'+i+'" class="form-control" placeholder="Nombre" required>'+
+                '<input type="text" name="nombre'+i+'" class="form-control" placeholder="Nombre (requerido)" required>'+
               '</div>'+
 
               '<br>'+
 
               '<div class="input-group">'+
                 '<span class="input-group-addon"><i class="fa fa-user"></i></span>'+
-                '<input type="text" name="ap_pat'+i+'" class="form-control" placeholder="Apellido Paterno" required>'+
+                '<input type="text" name="ap_pat'+i+'" class="form-control" placeholder="Apellido Paterno (requerido)" required>'+
               '</div>'+
 
               '<br>'+
@@ -123,7 +123,17 @@
 
               '<div class="input-group">'+
                 '<span class="input-group-addon"><i class="fa fa-key"></i></span>'+
-                '<input type="password" name="password'+i+'" class="form-control" placeholder="Contraseña" required>'+
+                '<input type="password" name="password'+i+'" class="form-control" placeholder="Contraseña de Habitación (requerido)" required>'+
+              '</div>'+
+
+              '<br>'+
+
+              '<div class="form-group">'+
+                '<label>Nivel de huesped</label>'+
+                '<select class="form-control" name="nivel_usuario'+i+'">'+
+                  '<option value="3" selected>Huesped Maestro</option>'+
+                  '<option value="4">Huesped Simple</option>'+
+                '</select>'+
               '</div>'+
             
               '<br>'+
@@ -134,7 +144,7 @@
                   '<div class="input-group-addon">'+
                     '<i class="fa fa-phone"></i>'+
                   '</div>'+
-                  '<input type="text" name="telefono'+i+'" class="form-control" data-mask required>'+
+                  '<input type="text" name="telefono'+i+'" placeholder="(requerido)" class="form-control" data-mask required>'+
                 '</div>'+
               '</div>'+
 
@@ -142,7 +152,7 @@
                 '<label>Fecha de Nacimiento</label>'+
                 '<div class="input-group">'+
                   '<div class="input-group-addon">'+
-                    '<i class="fa fa-calendar"></i>'+
+                    '<i class="fa fa-calendar"></i> (requerido)'+
                   '</div>'+
                   '<input type="date" name="fecha_nac'+i+'" class="form-control" required>'+
                 '</div>'+
@@ -169,15 +179,11 @@
                 '<p class="help-block">Tamaño máximo de archivo: 16Mb</p>'+
               '</div>'+
 
-              '<div class="form-group">'+
-                '<label>Dirección</label>'+
-                '<div class="input-group">'+
-                  '<div class="input-group-addon">'+
-                    '<i class="fa fa-home"></i>'+
-                  '</div>'+
-                  '<input type="text" name="direccion'+i+'" class="form-control" required>'+
-                '</div>'+
+              '<div class="input-group">'+
+                '<span class="input-group-addon"><i class="fa fa-home"></i></span>'+
+                '<input type="text" name="direccion'+i+'" class="form-control" placeholder="Dirección (requerido)" required>'+
               '</div>'+
+
             '</div>'+
           '</div>'+
         '</div>';

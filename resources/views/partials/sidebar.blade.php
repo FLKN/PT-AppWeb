@@ -15,17 +15,13 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bed"></i> <span>Habitaciones</span> <i class="fa fa-angle-left pull-right"></i>
+        <li>
+          <a href="/dash/habitaciones">
+            <i class="fa fa-bed"></i> <span>Habitaciones</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="/dash/habitaciones"><i class="fa fa-circle-o"></i> Ver Habitaciones</a></li>
-            <li><a href="/dash/habitaciones/ocupar/{id?}"><i class="fa fa-circle-o"></i> Hacer Registro</a></li>
-          </ul>
         </li>
-
         
+        @if($user->nivel != 2)
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>Control de empleados</span> <i class="fa fa-angle-left pull-right"></i>
@@ -41,7 +37,7 @@
             <i class="fa fa-bar-chart"></i> <span>Estadisticas</span>
           </a>
         </li>
-        
+        @endif
         <li class="treeview">
           <a href="#">
             <i class="fa fa-calendar"></i> <span>Eventos</span> <i class="fa fa-angle-left pull-right"></i>

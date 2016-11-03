@@ -39,7 +39,8 @@ class DashboardControl extends Controller
     $user=Auth::user();
     $empleado=empleado::where('id_usuario','=',$user->id)->first();
 		return view ('pt_dash.home_dash')
-      ->withEmpleado($empleado);
+      ->withEmpleado($empleado)
+      ->withUser($user);
 	}
 
   public function authenticate()
@@ -52,9 +53,9 @@ class DashboardControl extends Controller
     if (Auth::attempt($credentials)) {
 
         $usuario = usuario::find(Auth::user()->id);
-        $usuario->touch();
         return redirect()->intended('/dash');
 
+        $usuario->touch();
     } else
       return view('pt_dash.login');
   }
@@ -67,7 +68,8 @@ class DashboardControl extends Controller
     $empleados = empleado::all();
     return view ('pt_dash.ver_empleados')
       ->withEmpleado($empleado)
-      ->withEmpleados($empleados);
+      ->withEmpleados($empleados)
+      ->withUser($user);
   }
 
   public function editarEmpleado($id)
@@ -79,7 +81,8 @@ class DashboardControl extends Controller
     
     return view ('pt_dash.editar_empleados')
       ->withEmpleado($empleado)
-      ->withEditable($empleado_editable);
+      ->withEditable($empleado_editable)
+      ->withUser($user);
   }
 
   public function editateEmpleado()
@@ -106,7 +109,11 @@ class DashboardControl extends Controller
 
     $empleado->save();
 
-    return  redirect()->back();
+    $id_usuario = empleado::selectuserid($id)->get();
+
+    usuario::where('id', $id_usuario[0]->id_usuario)->update(['nivel' => $input["nivel_empleado"]]);
+    
+    return redirect("/dash/empleados");
   }
 
   public function agregarEmpleado()
@@ -115,7 +122,8 @@ class DashboardControl extends Controller
     $empleado = empleado::where('id_usuario','=',$user->id)->first();
 
     return view ('pt_dash.agregar_empleados')
-      ->withEmpleado($empleado);
+      ->withEmpleado($empleado)
+      ->withUser($user);
   }
 
   public function agregateEmpleado()
@@ -131,7 +139,7 @@ class DashboardControl extends Controller
       $usuario_nuevo = new usuario;
       
       $usuario_nuevo->user_name = $usuario;
-      $usuario_nuevo->nivel = 1;
+      $usuario_nuevo->nivel = $input["nivel_empleado"];
 
       $usuario_nuevo->save();
 
@@ -164,7 +172,7 @@ class DashboardControl extends Controller
       $empleado_nuevo->save();
 
 
-      return redirect()->back();
+      return redirect("/dash/empleados");
     }
   }
 
@@ -182,7 +190,8 @@ class DashboardControl extends Controller
     $eventos = evento::all();
     return view ('pt_dash.ver_eventos')
       ->withEmpleado($empleado)
-      ->withEventos($eventos);
+      ->withEventos($eventos)
+      ->withUser($user);
   }
 
   public function editarEvento($id)
@@ -194,7 +203,8 @@ class DashboardControl extends Controller
     
     return view ('pt_dash.editar_eventos')
       ->withEmpleado($empleado)
-      ->withEditable($evento_editable);
+      ->withEditable($evento_editable)
+      ->withUser($user);
   }
 
   public function editateEvento()
@@ -215,7 +225,7 @@ class DashboardControl extends Controller
 
     $evento->save();
 
-    return redirect()->back();
+    return redirect("/dash/eventos");
   }
 
   public function agregarEvento()
@@ -224,7 +234,8 @@ class DashboardControl extends Controller
     $empleado = empleado::where('id_usuario','=',$user->id)->first();
 
     return view ('pt_dash.agregar_eventos')
-      ->withEmpleado($empleado);
+      ->withEmpleado($empleado)
+      ->withUser($user);
   }
 
   public function agregateEvento()
@@ -244,7 +255,7 @@ class DashboardControl extends Controller
 
     $evento_nuevo->save();
 
-    return redirect()->back();
+    return redirect("/dash/eventos");
     
   }
 
@@ -263,7 +274,8 @@ class DashboardControl extends Controller
     $platillo = platillo::all();
     return view ('pt_dash.ver_platillos')
       ->withEmpleado($empleado)
-      ->withPlatillo($platillo);
+      ->withPlatillo($platillo)
+      ->withUser($user);
   }
 
   public function editarPlatillo($id)
@@ -275,7 +287,8 @@ class DashboardControl extends Controller
     
     return view ('pt_dash.editar_platillos')
       ->withEmpleado($empleado)
-      ->withEditable($platillo_editable);
+      ->withEditable($platillo_editable)
+      ->withUser($user);
   }
 
   public function editatePlatillo()
@@ -294,7 +307,7 @@ class DashboardControl extends Controller
     
       $platillo->save();
 
-    return redirect()->back();
+    return redirect("/dash/platillos");
   }
  
   public function agregarPlatillo()
@@ -303,7 +316,8 @@ class DashboardControl extends Controller
     $empleado = empleado::where('id_usuario','=',$user->id)->first();
 
     return view ('pt_dash.agregar_platillos')
-      ->withEmpleado($empleado);
+      ->withEmpleado($empleado)
+      ->withUser($user);
   }
   
   public function agregatePlatillo()
@@ -322,7 +336,7 @@ class DashboardControl extends Controller
 
     $platillo_nuevo->save();
 
-    return redirect()->back(); 
+    return redirect("/dash/platillos"); 
   }
 
   public function eliminatePlatillo($id)
@@ -340,7 +354,8 @@ class DashboardControl extends Controller
     $habitacion = habitacion::all();
     return view ('pt_dash.ver_habitaciones')
       ->withEmpleado($empleado)
-      ->withHabitacion($habitacion);
+      ->withHabitacion($habitacion)
+      ->withUser($user);
   }
 
   public function agregateHabitacion()
@@ -371,7 +386,16 @@ class DashboardControl extends Controller
   public function desocupateHabitacion()
   {
     $input = Request::all();
-    $id = habitacion::where('id', $input['id'])->update(['estado' => 0]);
+    $id_habitacion = $input['id'];
+    
+    $id = habitacion::where('id', $id_habitacion)->update(['estado' => 0]);
+
+    $id_usuarios_del = huesped::selectuserid($id_habitacion)->get();
+    for ($i=0 ; $i<count($id_usuarios_del) ; $i++) {
+      usuario::where('id',$id_usuarios_del[$i]->id_usuario)->delete();  
+    }
+    
+    huesped::where('id_habitacion', $id_habitacion)->delete();
 
     return 0;
   }
@@ -383,7 +407,8 @@ class DashboardControl extends Controller
 
     return view ('pt_dash.ocupar_habitacion')
       ->withEmpleado($empleado)
-      ->withHabitacionid($id);
+      ->with("habitacionid",$id)
+      ->withUser($user);
 
     return 0;
   }
@@ -394,21 +419,18 @@ class DashboardControl extends Controller
 
     $num_usuarios = $input['num_huespedes'];
     $id_habitacion = $input['id_habitacion'];
-    dd($id_habitacion);
-
+    
     for ($i=1; $i <= $num_usuarios; $i++) {
-      $usuario = strtolower($input['nombre'.$i]).".".strtolower($input['ap_pat'.$i]);
+      $usuario = strtolower($input['nombre'.$i]).".".strtolower($input['ap_pat'.$i]).".h".$id_habitacion;
 
       if(usuario::where('user_name',$usuario)->count()>0)
         return "error";
       else {
         
         $usuario_nuevo = new usuario;
-        
         $usuario_nuevo->user_name = $usuario;
-        $usuario_nuevo->nivel = 4;
+        $usuario_nuevo->nivel = $input['nivel_usuario'.$i];
         $usuario_nuevo->password = "";
-
         $usuario_nuevo->save();
 
 
@@ -439,8 +461,12 @@ class DashboardControl extends Controller
         $huesped_nuevo->save();
       }
     }
-    return 0;
+
+    $id = habitacion::where('id', $id_habitacion)->update(['estado' => 1]);
+
+    return redirect("/dash/habitaciones");
   }
+
 // Estadisticas routines
   public function verEstadisticas()
   {
@@ -449,7 +475,8 @@ class DashboardControl extends Controller
     $estadistica = estadistica::all();
     return view ('pt_dash.ver_estadisticas')
       ->withEmpleado($empleado)
-      ->withEstadistica($estadistica);
+      ->withEstadistica($estadistica)
+      ->withUser($user);
   }
 }
 

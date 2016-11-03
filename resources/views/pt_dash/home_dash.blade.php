@@ -22,8 +22,8 @@
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
-            <div class="inner">
-              <h4>Habitaciones <br> disponibles</h4>
+            <div class="inner">disponibles
+              <h4>Habitaciones <br> </h4>
             </div>
             <div class="icon">
               <i class="fa fa-bed"></i>
@@ -34,6 +34,7 @@
           </div>
         </div>
         <!-- ./col -->
+        @if($user->nivel != 2)
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
@@ -63,8 +64,9 @@
             </a>
           </div>
         </div>
+        @endif
         <!-- ./col -->
-        <div class="col-lg-6 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -79,7 +81,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-6 col-xs-12">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">

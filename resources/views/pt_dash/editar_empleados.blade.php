@@ -62,6 +62,19 @@
                     </div>
                   </div>
 
+                  <div class="form-group">
+                    <label>Nivel de empleado</label>
+                    <select class="form-control" name="nivel_empleado">
+                      @if( $editable->nivel == 1)
+                        <option value="1" selected>Empleado Maestro</option>
+                        <option value="2">Empleado Simple</option>
+                      @else if( $editable->nivel == 2)
+                        <option value="1">Empleado Maestro</option>
+                        <option value="2" selected>Empleado Simple</option>
+                      @endif
+                    </select>
+                  </div>                  
+
                   <div class="bootstrap-timepicker">
                     <div class="form-group">
                       <label>Hora de inicio</label>
