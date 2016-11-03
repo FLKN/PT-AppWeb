@@ -20,6 +20,15 @@
             <i class="fa fa-bed"></i> <span>Habitaciones</span>
           </a>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bed"></i> <span>Habitaciones</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/dash/habitaciones"><i class="fa fa-circle-o"></i>Control de Registros</a></li>
+            <li><a href="/dash/habitaciones/contraseñas"><i class="fa fa-circle-o"></i>Cambio de Contraseña</a></li>
+          </ul>
+        </li>
         
         @if($user->nivel != 2)
         <li class="treeview">
@@ -29,6 +38,7 @@
           <ul class="treeview-menu">
             <li><a href="/dash/empleados"><i class="fa fa-circle-o"></i> Ver Empleados</a></li>
             <li><a href="/dash/empleados/agregar"><i class="fa fa-circle-o"></i> Añadir Empleado</a></li>
+            <li><a href="/dash/empleados/contraseñas"><i class="fa fa-circle-o"></i>Cambio de Contraseña</a></li>
           </ul>
         </li>
 

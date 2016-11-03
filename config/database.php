@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'ptserver.southcentralus.cloudapp.azure.com'),
+            'host'      => env('DB_HOST', 'us-cdbr-azure-southcentral-f.cloudapp.net'),
             'database'  => env('DB_DATABASE', 'pt_db'),
-            'username'  => env('DB_USERNAME', 'pt_user'),
-            'password'  => env('DB_PASSWORD', 'qazwsxer'),
+            'username'  => env('DB_USERNAME', 'b77bca855ed18d'),
+            'password'  => env('DB_PASSWORD', '595352af'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
